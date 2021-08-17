@@ -14,7 +14,7 @@ export class Student extends Component {
 
   clickHandler = () => {
     console.log("Button Clicked");
-    this.setState({ roll: 102 });
+    this.setState({ roll: this.state.roll + 2 });
   };
 
   render() {
