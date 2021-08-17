@@ -1,17 +1,31 @@
-import React, { Component } from 'react'
-import Marks from './Marks'
-
+import React, { Component } from "react";
+import Marks from "./Marks";
 
 export class Student extends Component {
-    render() {
-        console.log(" Students Rendered")
-        return (
-            <div>
-               <h1>My name is {this.props.name} </h1>
-               <Marks/>
-            </div>
-        )
-    }
+  constructor(props) {
+    super(props);
+    console.log("Students constructor")
+    
+
+    this.state = {
+      roll: 101,
+    };
+  }
+
+  clickHandler = () => {
+    console.log("Button Clicked");
+    this.setState({ roll: 102 });
+  };
+
+  render() {
+    console.log(" Students Rendered");
+    return (
+      <div>
+        <Marks roll={this.state.roll} />
+        <button onClick={this.clickHandler}>change</button>
+      </div>
+    );
+  }
 }
 
-export default Student
+export default Student;
